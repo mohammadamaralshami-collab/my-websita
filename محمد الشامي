@@ -1,0 +1,3079 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>مِفتاح | أدوات عربية مجانية</title>
+
+<meta name="description" content="مِفتاح منصة عربية للأدوات الرقمية المجانية">
+
+<style>
+
+:root{
+--bg:#07111f;
+--card:#102035;
+--card2:#142941;
+--text:#f5f8ff;
+--muted:#9db0c8;
+--blue:#2f8cff;
+--line:#ffffff16;
+}
+
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.7;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+button,
+input,
+textarea,
+select{
+font:inherit;
+}
+
+button{
+cursor:pointer;
+}
+
+.container{
+width:min(1150px,92%);
+margin:auto;
+}
+
+/* الشريط العلوي */
+
+header{
+position:sticky;
+top:0;
+z-index:100;
+background:#07111fee;
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(--line);
+}
+
+nav{
+min-height:68px;
+display:flex;
+align-items:center;
+gap:18px;
+flex-wrap:wrap;
+padding:9px 0;
+}
+
+.logo{
+font-size:22px;
+font-weight:900;
+white-space:nowrap;
+}
+
+.logo b{
+display:inline-grid;
+place-items:center;
+width:40px;
+height:40px;
+border-radius:12px;
+background:var(--blue);
+margin-left:7px;
+}
+
+.links{
+display:flex;
+gap:5px;
+overflow-x:auto;
+flex:1;
+scrollbar-width:none;
+}
+
+.links::-webkit-scrollbar{
+display:none;
+}
+
+.links a{
+white-space:nowrap;
+color:var(--muted);
+padding:9px 12px;
+border-radius:9px;
+}
+
+.links a:hover{
+background:#ffffff0c;
+color:white;
+}
+
+/* الرئيسية */
+
+.hero{
+padding:70px 0;
+}
+
+.heroGrid{
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:28px;
+align-items:center;
+}
+
+.tag{
+color:#61b0ff;
+border:1px solid #2f8cff44;
+background:#2f8cff12;
+display:inline-block;
+padding:5px 12px;
+border-radius:30px;
+}
+
+.hero h1{
+font-size:clamp(40px,7vw,68px);
+line-height:1.1;
+margin:15px 0;
+}
+
+.hero h1 span{
+color:#61b0ff;
+}
+
+.hero p{
+color:var(--muted);
+font-size:18px;
+}
+
+.box,
+.tool,
+.stat,
+.info{
+background:linear-gradient(145deg,var(--card),var(--card2));
+border:1px solid var(--line);
+border-radius:18px;
+padding:20px;
+}
+
+.heroBox li{
+padding:7px;
+color:var(--muted);
+}
+
+.btn{
+border:0;
+border-radius:11px;
+padding:10px 15px;
+color:white;
+background:var(--blue);
+font-weight:700;
+}
+
+.btn.alt{
+background:#ffffff0c;
+border:1px solid var(--line);
+}
+
+.actions{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-top:12px;
+}
+
+/* البحث */
+
+.search{
+display:flex;
+gap:7px;
+margin-top:20px;
+}
+
+.search input{
+flex:1;
+}
+
+.search input,
+.field input,
+.field textarea,
+.field select,
+.modal input,
+.modal textarea,
+.modal select{
+width:100%;
+background:#081625;
+color:white;
+border:1px solid var(--line);
+border-radius:11px;
+padding:11px;
+outline:none;
+}
+
+/* الإحصائيات */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+}
+
+.stat{
+text-align:center;
+}
+
+.stat strong{
+display:block;
+font-size:27px;
+color:#61b0ff;
+}
+
+.stat small{
+color:var(--muted);
+}
+
+/* الأقسام */
+
+section{
+padding:60px 0;
+scroll-margin-top:90px;
+}
+
+.title{
+text-align:center;
+margin-bottom:28px;
+}
+
+.title h2{
+font-size:34px;
+margin:0 0 5px;
+}
+
+.title p{
+color:var(--muted);
+margin:0;
+}
+
+/* الفلاتر */
+
+.filters{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.filter{
+border:1px solid var(--line);
+background:var(--card);
+color:var(--muted);
+padding:8px 13px;
+border-radius:10px;
+}
+
+.filter.active{
+background:var(--blue);
+color:#fff;
+}
+
+/* الأدوات */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+}
+
+.tool{
+position:relative;
+}
+
+.toolIcon{
+font-size:30px;
+}
+
+.tool p,
+.info p{
+color:var(--muted);
+font-size:14px;
+}
+
+.fav{
+position:absolute;
+left:12px;
+top:12px;
+border:1px solid var(--line);
+background:#ffffff08;
+color:#ffd15c;
+border-radius:9px;
+width:34px;
+height:34px;
+}
+
+/* النماذج */
+
+.field{
+margin:12px 0;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.result{
+white-space:pre-wrap;
+overflow-wrap:anywhere;
+background:#081625;
+border:1px solid var(--line);
+border-radius:11px;
+padding:13px;
+margin-top:12px;
+}
+
+/* البطاقة */
+
+.cardPreview{
+display:none;
+margin-top:18px;
+padding:35px 20px;
+text-align:center;
+border-radius:24px;
+background:linear-gradient(145deg,#15365c,#081625);
+border:1px solid #61b0ff55;
+}
+
+.cardPreview.show{
+display:block;
+}
+
+.cardPreview h3{
+font-size:30px;
+margin:7px;
+}
+
+/* المهام */
+
+.tasks{
+display:grid;
+gap:8px;
+}
+
+.task{
+display:flex;
+gap:10px;
+align-items:center;
+background:var(--card);
+border:1px solid var(--line);
+padding:10px;
+border-radius:10px;
+}
+
+.task span{
+flex:1;
+}
+
+.done span{
+text-decoration:line-through;
+color:#667891;
+}
+
+/* الإعلان */
+
+.ad{
+border:1px dashed #ffffff22;
+color:#63748b;
+text-align:center;
+padding:25px;
+border-radius:15px;
+margin:20px 0;
+}
+
+/* النافذة */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:#000b;
+z-index:500;
+padding:18px;
+align-items:center;
+justify-content:center;
+}
+
+.modal.show{
+display:flex;
+}
+
+.modalBox{
+width:min(720px,100%);
+max-height:90vh;
+overflow:auto;
+background:var(--card);
+border:1px solid var(--line);
+border-radius:20px;
+padding:22px;
+}
+
+.modalHead{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.close{
+border:1px solid var(--line);
+background:#ffffff0a;
+color:#fff;
+border-radius:9px;
+width:38px;
+height:38px;
+font-size:22px;
+}
+
+/* الفوتر */
+
+footer{
+border-top:1px solid var(--line);
+padding:40px 0;
+color:var(--muted);
+}
+
+/* الهاتف */
+
+@media(max-width:850px){
+
+.heroGrid{
+grid-template-columns:1fr;
+}
+
+.grid{
+grid-template-columns:1fr 1fr;
+}
+
+.stats{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:560px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.row{
+grid-template-columns:1fr;
+}
+
+.hero{
+padding:45px 0;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<nav class="container">
+
+<a class="logo" href="#home">
+<b>🔑</b>
+مِفتاح
+</a>
+
+<div class="links">
+
+<a href="#home">الرئيسية</a>
+
+<a href="#tools">🧰 الأدوات</a>
+
+<a href="#templates">📚 القوالب</a>
+
+<a href="#services">💼 الخدمات</a>
+
+<a href="#tasks">📋 المهام</a>
+
+<a href="#about">ℹ️ عن مِفتاح</a>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<main id="home">
+
+
+<!-- الرئيسية -->
+
+<section class="hero">
+
+<div class="container heroGrid">
+
+<div>
+
+<span class="tag">
+🚀 منصة عربية مجانية
+</span>
+
+<h1>
+كل أدواتك في
+<span>مِفتاح واحد</span>
+</h1>
+
+<p>
+أدوات للكتابة والحساب والدراسة والبرمجة والتنظيم،
+مع قوالب وخدمات رقمية.
+</p>
+
+<div class="actions">
+
+<a class="btn" href="#tools">
+ابدأ الآن
+</a>
+
+<a class="btn alt" href="#services">
+الخدمات
+</a>
+
+</div>
+
+
+<div class="search">
+
+<input
+id="search"
+placeholder="ابحث عن أداة..."
+oninput="searchTools(this.value)"
+>
+
+<button
+class="btn"
+onclick="searchTools(document.getElementById('search').value)"
+>
+بحث
+</button>
+
+</div>
+
+</div>
+
+
+<div class="box heroBox">
+
+<h3>
+ماذا يقدم مِفتاح؟
+</h3>
+
+<ul>
+
+<li>🧮 حاسبات</li>
+
+<li>✍️ أدوات نصوص</li>
+
+<li>🎓 أدوات دراسة</li>
+
+<li>💻 أدوات برمجة</li>
+
+<li>🎨 بطاقة إلكترونية</li>
+
+<li>💼 خدمات رقمية</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- الإحصائيات -->
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+<strong id="count">0</strong>
+<small>أداة</small>
+</div>
+
+<div class="stat">
+<strong id="favCount">0</strong>
+<small>مفضلة</small>
+</div>
+
+<div class="stat">
+<strong>100%</strong>
+<small>متصفح</small>
+</div>
+
+<div class="stat">
+<strong>مجاني</strong>
+<small>أساسي</small>
+</div>
+
+</div>
+
+<div class="ad">
+مساحة إعلانية
+</div>
+
+</div>
+
+
+<!-- الأدوات -->
+
+<section id="tools">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+🧰 الأدوات
+</h2>
+
+<p>
+اضغط «فتح الأداة» لتشغيلها.
+</p>
+
+</div>
+
+
+<div class="filters">
+
+<button
+class="filter active"
+onclick="filterTools('all',this)"
+>
+الكل
+</button>
+
+<button
+class="filter"
+onclick="filterTools('writing',this)"
+>
+✍️ كتابة
+</button>
+
+<button
+class="filter"
+onclick="filterTools('math',this)"
+>
+🧮 حساب
+</button>
+
+<button
+class="filter"
+onclick="filterTools('study',this)"
+>
+🎓 دراسة
+</button>
+
+<button
+class="filter"
+onclick="filterTools('coding',this)"
+>
+💻 برمجة
+</button>
+
+<button
+class="filter"
+onclick="filterTools('internet',this)"
+>
+🌐 إنترنت
+</button>
+
+<button
+class="filter"
+onclick="filterTools('organize',this)"
+>
+📋 تنظيم
+</button>
+
+<button
+class="filter"
+onclick="filterTools('favorites',this)"
+>
+⭐ المفضلة
+</button>
+
+</div>
+
+
+<div id="toolsGrid" class="grid"></div>
+
+</div>
+
+</section>
+
+
+<!-- القوالب -->
+
+<section id="templates">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+📚 القوالب
+</h2>
+
+<p>
+افتح وعدّل وانسخ.
+</p>
+
+</div>
+
+<div class="grid" id="templatesGrid"></div>
+
+</div>
+
+</section>
+
+
+<!-- الخدمات -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+💼 الخدمات
+</h2>
+
+<p>
+طلبات الخدمات تُجهز كنص جاهز للنسخ.
+</p>
+
+</div>
+
+<div class="grid" id="servicesGrid"></div>
+
+</div>
+
+</section>
+
+
+<!-- المهام -->
+
+<section id="tasks">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+📋 المهام
+</h2>
+
+<p>
+المهام تحفظ على جهازك.
+</p>
+
+</div>
+
+
+<div class="actions">
+
+<input
+id="taskInput"
+style="flex:1"
+placeholder="اكتب مهمة..."
+onkeydown="if(event.key==='Enter')addTask()"
+>
+
+<button
+class="btn"
+onclick="addTask()"
+>
+إضافة
+</button>
+
+</div>
+
+
+<div
+id="taskList"
+class="tasks"
+style="margin-top:15px"
+></div>
+
+</div>
+
+</section>
+
+
+<!-- عن الموقع -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+ℹ️ عن مِفتاح
+</h2>
+
+<p>
+مشروع واحد يجمع أدوات عربية مفيدة.
+</p>
+
+</div>
+
+<div class="box">
+
+<p>
+مِفتاح منصة عربية تجمع الأدوات الرقمية اليومية
+في مكان واحد، وتعمل مباشرة من المتصفح.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+🔑 مِفتاح — أدوات عربية مجانية وسريعة
+
+<br>
+
+<small>
+© 2026
+</small>
+
+</div>
+
+</footer>
+
+
+<!-- النافذة -->
+
+<div
+id="modal"
+class="modal"
+onclick="if(event.target===this)closeModal()"
+>
+
+<div class="modalBox">
+
+<div class="modalHead">
+
+<h2 id="modalTitle"></h2>
+
+<button
+class="close"
+onclick="closeModal()"
+>
+×
+</button>
+
+</div>
+
+<div id="modalBody"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* المتغيرات */
+
+const $ = id => document.getElementById(id);
+
+let category = "all";
+
+let studyTimer = null;
+
+let studySeconds = 0;
+
+let currentCard = "";
+
+
+/* =========================
+   الأدوات
+========================= */
+
+const tools = [
+
+{
+id:"writer",
+n:"كاتب النصوص",
+i:"✍️",
+c:"writing",
+d:"اكتب نصًا وانسخه أو حمّله.",
+html:`
+<div class="field">
+<textarea id="x" placeholder="اكتب النص..."></textarea>
+</div>
+
+<div class="actions">
+
+<button class="btn"
+onclick="copyText($('x').value)">
+نسخ
+</button>
+
+<button class="btn alt"
+onclick="downloadText('نص.txt',$('x').value)">
+تحميل
+</button>
+
+</div>
+`
+},
+
+{
+id:"clean",
+n:"تنظيف النص",
+i:"🧹",
+c:"writing",
+d:"إزالة المسافات والأسطر الفارغة.",
+html:`
+<div class="field">
+<textarea id="x"></textarea>
+</div>
+
+<button class="btn"
+onclick="cleanText()">
+تنظيف
+</button>
+
+<div id="r" class="result"></div>
+`
+},
+
+{
+id:"reverse",
+n:"عكس النص",
+i:"🔄",
+c:"writing",
+d:"اعكس النص بسرعة.",
+html:`
+<div class="field">
+<textarea id="x"></textarea>
+</div>
+
+<button class="btn"
+onclick="reverseText()">
+عكس
+</button>
+
+<div id="r" class="result"></div>
+`
+},
+
+{
+id:"analysis",
+n:"تحليل النص",
+i:"📊",
+c:"writing",
+d:"عدد الكلمات والحروف والأسطر.",
+html:`
+<div class="field">
+<textarea id="x"></textarea>
+</div>
+
+<button class="btn"
+onclick="analysisText()">
+تحليل
+</button>
+
+<div id="r" class="result"></div>
+`
+},
+
+{
+id:"messages",
+n:"مولد الرسائل",
+i:"💬",
+c:"writing",
+d:"رسائل جاهزة لمواقف مختلفة.",
+html:`
+<select id="x">
+
+<option>شكر</option>
+
+<option>اعتذار</option>
+
+<option>تهنئة</option>
+
+<option>طلب</option>
+
+<option>رسمية</option>
+
+</select>
+
+<br><br>
+
+<button class="btn"
+onclick="generateMessage()">
+إنشاء
+</button>
+
+<div id="r" class="result"></div>
+`
+},
+
+/* البطاقة الإلكترونية */
+
+{
+id:"ecard",
+n:"مصمم بطاقة إلكترونية",
+i:"🎨",
+c:"writing",
+d:"أنشئ بطاقة تهنئة أو دعوة واطبعها.",
+html:`
+
+<div class="field">
+
+<input
+id="ct"
+value="بطاقة تهنئة"
+placeholder="عنوان البطاقة"
+>
+
+</div>
+
+
+<div class="row">
+
+<input
+id="cn"
+placeholder="الاسم"
+>
+
+<input
+id="cd"
+type="date"
+>
+
+</div>
+
+
+<div class="field">
+
+<textarea
+id="cm"
+placeholder="اكتب رسالتك..."
+></textarea>
+
+</div>
+
+
+<button
+class="btn"
+onclick="makeCard()"
+>
+إنشاء البطاقة
+</button>
+
+
+<div
+id="cp"
+class="cardPreview"
+>
+
+<small></small>
+
+<h3></h3>
+
+<p></p>
+
+<b></b>
+
+</div>
+
+
+<div class="actions">
+
+<button
+class="btn alt"
+onclick="copyText(currentCard)"
+>
+نسخ النص
+</button>
+
+<button
+class="btn alt"
+onclick="printCard()"
+>
+طباعة / PDF
+</button>
+
+</div>
+
+`
+},
+
+/* الحساب */
+
+{
+id:"percent",
+n:"حاسبة النسبة",
+i:"🧮",
+c:"math",
+d:"احسب النسبة المئوية.",
+html:`
+
+<div class="row">
+
+<input
+id="a"
+type="number"
+placeholder="القيمة"
+>
+
+<input
+id="b"
+type="number"
+placeholder="من"
+>
+
+</div>
+
+<br>
+
+<button
+class="btn"
+onclick="calcPercent()"
+>
+احسب
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+{
+id:"discount",
+n:"الخصم والزيادة",
+i:"💰",
+c:"math",
+d:"احسب السعر بعد الخصم أو الزيادة.",
+html:`
+
+<input
+id="a"
+type="number"
+placeholder="السعر"
+>
+
+<br><br>
+
+<input
+id="b"
+type="number"
+placeholder="النسبة %"
+>
+
+<br><br>
+
+<button
+class="btn"
+onclick="calcMoney(-1)"
+>
+خصم
+</button>
+
+<button
+class="btn alt"
+onclick="calcMoney(1)"
+>
+زيادة
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+{
+id:"age",
+n:"حاسبة العمر",
+i:"🎂",
+c:"math",
+d:"العمر بالسنوات والأشهر والأيام.",
+html:`
+
+<input
+id="x"
+type="date"
+>
+
+<br><br>
+
+<button
+class="btn"
+onclick="calcAge()"
+>
+احسب العمر
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+{
+id:"change",
+n:"حاسبة التغير",
+i:"📈",
+c:"math",
+d:"نسبة الزيادة أو النقصان.",
+html:`
+
+<div class="row">
+
+<input
+id="a"
+type="number"
+placeholder="القيمة القديمة"
+>
+
+<input
+id="b"
+type="number"
+placeholder="القيمة الجديدة"
+>
+
+</div>
+
+<br>
+
+<button
+class="btn"
+onclick="calcChange()"
+>
+احسب
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+{
+id:"random",
+n:"رقم عشوائي",
+i:"🎲",
+c:"math",
+d:"رقم عشوائي بين حدين.",
+html:`
+
+<div class="row">
+
+<input
+id="a"
+type="number"
+value="1"
+>
+
+<input
+id="b"
+type="number"
+value="100"
+>
+
+</div>
+
+<br>
+
+<button
+class="btn"
+onclick="randomNumber()"
+>
+توليد
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+/* الدراسة */
+
+{
+id:"studyTimer",
+n:"مؤقت الدراسة",
+i:"⏱️",
+c:"study",
+d:"جلسة دراسة بمؤقت.",
+html:`
+
+<input
+id="x"
+type="number"
+value="25"
+min="1"
+>
+
+<br><br>
+
+<button
+class="btn"
+onclick="startStudy()"
+>
+ابدأ
+</button>
+
+<button
+class="btn alt"
+onclick="stopStudy()"
+>
+إيقاف
+</button>
+
+<div id="r" class="result">
+جاهز
+</div>
+
+`
+},
+
+{
+id:"questions",
+n:"مولد أسئلة",
+i:"❓",
+c:"study",
+d:"أسئلة مراجعة من موضوع.",
+html:`
+
+<input
+id="x"
+placeholder="موضوع الدرس"
+>
+
+<br><br>
+
+<button
+class="btn"
+onclick="makeQuestions()"
+>
+توليد
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+/* البرمجة */
+
+{
+id:"password",
+n:"مولد كلمة مرور",
+i:"🔐",
+c:"coding",
+d:"كلمة مرور عشوائية.",
+html:`
+
+<input
+id="x"
+type="number"
+value="16"
+min="4"
+max="100"
+>
+
+<br><br>
+
+<button
+class="btn"
+onclick="generatePassword()"
+>
+توليد
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+{
+id:"json",
+n:"منسق JSON",
+i:"{ }",
+c:"coding",
+d:"تنسيق وضغط JSON.",
+html:`
+
+<textarea
+id="x"
+placeholder='{"name":"Ali"}'
+></textarea>
+
+<br><br>
+
+<button
+class="btn"
+onclick="formatJSON()"
+>
+تنسيق
+</button>
+
+<button
+class="btn alt"
+onclick="minifyJSON()"
+>
+ضغط
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+{
+id:"base64",
+n:"Base64",
+i:"🔣",
+c:"coding",
+d:"ترميز وفك ترميز العربية.",
+html:`
+
+<textarea id="x"></textarea>
+
+<br><br>
+
+<button
+class="btn"
+onclick="encodeBase64()"
+>
+ترميز
+</button>
+
+<button
+class="btn alt"
+onclick="decodeBase64()"
+>
+فك
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+/* الإنترنت */
+
+{
+id:"url",
+n:"ترميز الرابط",
+i:"🔗",
+c:"internet",
+d:"ترميز أو فك ترميز الرابط.",
+html:`
+
+<textarea id="x"></textarea>
+
+<br><br>
+
+<button
+class="btn"
+onclick="encodeURL()"
+>
+ترميز
+</button>
+
+<button
+class="btn alt"
+onclick="decodeURL()"
+>
+فك
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+{
+id:"qr",
+n:"مولد QR",
+i:"📱",
+c:"internet",
+d:"إنشاء QR لنص أو رابط.",
+html:`
+
+<input
+id="x"
+placeholder="رابط أو نص"
+>
+
+<br><br>
+
+<button
+class="btn"
+onclick="makeQR()"
+>
+إنشاء
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+{
+id:"link",
+n:"فحص الرابط",
+i:"🌐",
+c:"internet",
+d:"فحص صيغة الرابط.",
+html:`
+
+<input
+id="x"
+placeholder="https://example.com"
+>
+
+<br><br>
+
+<button
+class="btn"
+onclick="checkLink()"
+>
+فحص
+</button>
+
+<div id="r" class="result"></div>
+
+`
+},
+
+/* التنظيم */
+
+{
+id:"sort",
+n:"ترتيب قائمة",
+i:"↕️",
+c:"organize",
+d:"ترتيب العناصر أبجديًا.",
+html:`
+
+<textarea
+id="x"
+placeholder="كل عنصر في سطر"
+></textarea>
+
+<br><br>
+
+<button
+class="btn"
+onclick="sortList()"
+>
+ترتيب
+</button>
+
+<div id="r" class="result"></div>
+
+`
+}
+
+];
+
+
+/* =========================
+   عرض الأدوات
+========================= */
+
+function getFavorites(){
+
+try{
+
+return JSON.parse(
+localStorage.getItem("mftahFavorites") || "[]"
+);
+
+}catch{
+
+return [];
+
+}
+
+}
+
+
+function isFavorite(id){
+
+return getFavorites().includes(id);
+
+}
+
+
+function toggleFavorite(id){
+
+let list=getFavorites();
+
+if(list.includes(id)){
+
+list=list.filter(x=>x!==id);
+
+}else{
+
+list.push(id);
+
+}
+
+localStorage.setItem(
+"mftahFavorites",
+JSON.stringify(list)
+);
+
+renderTools();
+
+}
+
+
+function renderTools(list=tools){
+
+$("count").textContent=tools.length;
+
+$("favCount").textContent=getFavorites().length;
+
+if(!list.length){
+
+$("toolsGrid").innerHTML=`
+
+<div
+class="info"
+style="grid-column:1/-1;text-align:center"
+>
+
+لا توجد نتائج.
+
+</div>
+
+`;
+
+return;
+
+}
+
+$("toolsGrid").innerHTML=
+
+list.map(t=>`
+
+<article class="tool">
+
+<button
+class="fav"
+onclick="toggleFavorite('${t.id}')"
+>
+
+${isFavorite(t.id)?"★":"☆"}
+
+</button>
+
+<div class="toolIcon">
+${t.i}
+</div>
+
+<h3>
+${t.n}
+</h3>
+
+<p>
+${t.d}
+</p>
+
+<button
+class="btn"
+onclick="openTool('${t.id}')"
+>
+فتح الأداة
+</button>
+
+</article>
+
+`).join("");
+
+}
+
+
+function filterTools(type,button){
+
+category=type;
+
+document
+.querySelectorAll(".filter")
+.forEach(x=>x.classList.remove("active"));
+
+button.classList.add("active");
+
+let list;
+
+if(type==="all"){
+
+list=tools;
+
+}else if(type==="favorites"){
+
+list=tools.filter(t=>isFavorite(t.id));
+
+}else{
+
+list=tools.filter(t=>t.c===type);
+
+}
+
+renderTools(list);
+
+}
+
+
+function searchTools(value){
+
+const q=value.trim().toLowerCase();
+
+if(!q){
+
+renderTools();
+
+return;
+
+}
+
+const list=tools.filter(t=>
+(t.n+" "+t.d)
+.toLowerCase()
+.includes(q)
+);
+
+renderTools(list);
+
+}
+
+
+/* =========================
+   النافذة
+========================= */
+
+function openTool(id){
+
+const tool=tools.find(x=>x.id===id);
+
+if(!tool)return;
+
+$("modalTitle").textContent=
+tool.i+" "+tool.n;
+
+$("modalBody").innerHTML=tool.html;
+
+$("modal").classList.add("show");
+
+}
+
+
+function closeModal(){
+
+$("modal").classList.remove("show");
+
+}
+
+
+document.addEventListener(
+"keydown",
+function(e){
+
+if(e.key==="Escape"){
+closeModal();
+}
+
+}
+);
+
+
+/* =========================
+   النسخ والتحميل
+========================= */
+
+function copyText(text){
+
+if(!text){
+
+alert("لا يوجد نص.");
+
+return;
+
+}
+
+if(navigator.clipboard){
+
+navigator.clipboard
+.writeText(text)
+.then(()=>alert("تم النسخ ✅"))
+.catch(()=>fallbackCopy(text));
+
+}else{
+
+fallbackCopy(text);
+
+}
+
+}
+
+
+function fallbackCopy(text){
+
+const area=document.createElement("textarea");
+
+area.value=text;
+
+document.body.appendChild(area);
+
+area.select();
+
+document.execCommand("copy");
+
+area.remove();
+
+alert("تم النسخ ✅");
+
+}
+
+
+function downloadText(name,text){
+
+const blob=new Blob(
+[text],
+{
+type:"text/plain;charset=utf-8"
+}
+);
+
+const url=URL.createObjectURL(blob);
+
+const a=document.createElement("a");
+
+a.href=url;
+
+a.download=name;
+
+a.click();
+
+setTimeout(
+()=>URL.revokeObjectURL(url),
+1000
+);
+
+}
+
+
+/* =========================
+   الكتابة
+========================= */
+
+function cleanText(){
+
+$("r").textContent=
+
+$("x").value
+.split("\n")
+.map(x=>x.trim().replace(/\s+/g," "))
+.filter(Boolean)
+.join("\n");
+
+}
+
+
+function reverseText(){
+
+$("r").textContent=
+[...$("x").value]
+.reverse()
+.join("");
+
+}
+
+
+function analysisText(){
+
+const text=$("x").value;
+
+const words=text.trim()
+?text.trim().split(/\s+/).length
+:0;
+
+const lines=text
+?text.split("\n").length
+:0;
+
+$("r").textContent=
+`الحروف: ${text.length}
+الكلمات: ${words}
+الأسطر: ${lines}`;
+
+}
+
+
+function generateMessage(){
+
+const messages={
+
+"شكر":
+"شكرًا لك على تعاونك، وأسأل الله أن يجزيك خيرًا.",
+
+"اعتذار":
+"أعتذر عن أي تقصير بدر مني، وأرجو قبول اعتذاري.",
+
+"تهنئة":
+"ألف مبروك، أسأل الله أن يكتب لك الخير والسعادة.",
+
+"طلب":
+"أرجو منكم التكرم بالنظر في طلبي، ولكم خالص الشكر.",
+
+"رسمية":
+"السلام عليكم ورحمة الله وبركاته\nأتقدم إليكم بهذا الطلب راجيًا النظر فيه."
+
+};
+
+$("r").textContent=
+messages[$("x").value];
+
+}
+
+
+/* =========================
+   الحساب
+========================= */
+
+function calcPercent(){
+
+const a=Number($("a").value);
+
+const b=Number($("b").value);
+
+$("r").textContent=
+
+b
+?`${a} من ${b} = ${(a/b*100).toFixed(2)}%`
+:"أدخل القيم.";
+
+}
+
+
+function calcMoney(sign){
+
+const price=Number($("a").value);
+
+const percent=Number($("b").value);
+
+if(price<0 || percent<0){
+
+$("r").textContent=
+"أدخل أرقامًا صحيحة.";
+
+return;
+
+}
+
+const amount=price*percent/100;
+
+$("r").textContent=
+`المقدار: ${amount.toFixed(2)}
+السعر النهائي: ${(price+sign*amount).toFixed(2)}`;
+
+}
+
+
+function calcAge(){
+
+const value=$("x").value;
+
+if(!value){
+
+$("r").textContent=
+"اختر تاريخ الميلاد.";
+
+return;
+
+}
+
+const birth=
+new Date(value+"T00:00:00");
+
+const now=new Date();
+
+if(birth>now){
+
+$("r").textContent=
+"التاريخ في المستقبل.";
+
+return;
+
+}
+
+let years=
+now.getFullYear()-
+birth.getFullYear();
+
+let months=
+now.getMonth()-
+birth.getMonth();
+
+let days=
+now.getDate()-
+birth.getDate();
+
+if(days<0){
+
+months--;
+
+days+=
+new Date(
+now.getFullYear(),
+now.getMonth(),
+0
+).getDate();
+
+}
+
+if(months<0){
+
+years--;
+
+months+=12;
+
+}
+
+$("r").textContent=
+`عمرك: ${years} سنة و ${months} شهر و ${days} يوم`;
+
+}
+
+
+function calcChange(){
+
+const oldValue=Number($("a").value);
+
+const newValue=Number($("b").value);
+
+if(!oldValue){
+
+$("r").textContent=
+"القيمة القديمة لا تكون صفرًا.";
+
+return;
+
+}
+
+const change=
+(newValue-oldValue)/
+oldValue*100;
+
+$("r").textContent=
+
+change>=0
+?`الزيادة: ${change.toFixed(2)}%`
+:`النقصان: ${Math.abs(change).toFixed(2)}%`;
+
+}
+
+
+function randomNumber(){
+
+let a=Number($("a").value);
+
+let b=Number($("b").value);
+
+if(a>b){
+
+[a,b]=[b,a];
+
+}
+
+$("r").textContent=
+Math.floor(
+Math.random()*(b-a+1)
+)+a;
+
+}
+
+
+/* =========================
+   الدراسة
+========================= */
+
+function makeQuestions(){
+
+const topic=$("x").value.trim();
+
+if(!topic){
+
+$("r").textContent=
+"اكتب الموضوع.";
+
+return;
+
+}
+
+$("r").textContent=
+`أسئلة عن ${topic}:
+
+1. ما المقصود بـ ${topic}؟
+
+2. ما أهميته؟
+
+3. اذكر مثالًا عليه.
+
+4. ما أهم عناصره؟
+
+5. ماذا تعلمت من الموضوع؟`;
+
+}
+
+
+function startStudy(){
+
+stopStudy();
+
+studySeconds=
+Math.max(
+1,
+Number($("x").value)||25
+)*60;
+
+updateStudy();
+
+studyTimer=
+setInterval(
+updateStudy,
+1000
+);
+
+}
+
+
+function updateStudy(){
+
+const minutes=
+Math.floor(studySeconds/60);
+
+const seconds=
+studySeconds%60;
+
+$("r").textContent=
+`${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+
+studySeconds--;
+
+if(studySeconds<0){
+
+stopStudy();
+
+alert("انتهى وقت الدراسة 🎉");
+
+}
+
+}
+
+
+function stopStudy(){
+
+clearInterval(studyTimer);
+
+studyTimer=null;
+
+}
+
+
+/* =========================
+   البرمجة
+========================= */
+
+function generatePassword(){
+
+let length=
+Math.min(
+100,
+Math.max(
+4,
+Number($("x").value)||16
+)
+);
+
+const chars=
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
+"abcdefghijklmnopqrstuvwxyz"+
+"0123456789"+
+"!@#$%^&*()-_=+";
+
+let password="";
+
+for(let i=0;i<length;i++){
+
+password+=
+chars[
+Math.floor(
+Math.random()*chars.length
+)
+];
+
+}
+
+$("r").textContent=password;
+
+}
+
+
+function formatJSON(){
+
+try{
+
+$("r").textContent=
+JSON.stringify(
+JSON.parse($("x").value),
+null,
+2
+);
+
+}catch{
+
+$("r").textContent=
+"JSON غير صالح.";
+
+}
+
+}
+
+
+function minifyJSON(){
+
+try{
+
+$("r").textContent=
+JSON.stringify(
+JSON.parse($("x").value)
+);
+
+}catch{
+
+$("r").textContent=
+"JSON غير صالح.";
+
+}
+
+}
+
+
+function encodeBase64(){
+
+try{
+
+const bytes=
+new TextEncoder()
+.encode($("x").value);
+
+let binary="";
+
+bytes.forEach(
+b=>binary+=String.fromCharCode(b)
+);
+
+$("r").textContent=
+btoa(binary);
+
+}catch{
+
+$("r").textContent=
+"تعذر الترميز.";
+
+}
+
+}
+
+
+function decodeBase64(){
+
+try{
+
+const binary=
+atob($("x").value.trim());
+
+const bytes=
+Uint8Array.from(
+binary,
+c=>c.charCodeAt(0)
+);
+
+$("r").textContent=
+new TextDecoder()
+.decode(bytes);
+
+}catch{
+
+$("r").textContent=
+"النص غير صالح.";
+
+}
+
+}
+
+
+/* =========================
+   الإنترنت
+========================= */
+
+function encodeURL(){
+
+try{
+
+$("r").textContent=
+encodeURIComponent(
+$("x").value
+);
+
+}catch{
+
+$("r").textContent=
+"تعذر الترميز.";
+
+}
+
+}
+
+
+function decodeURL(){
+
+try{
+
+$("r").textContent=
+decodeURIComponent(
+$("x").value
+);
+
+}catch{
+
+$("r").textContent=
+"القيمة غير صالحة.";
+
+}
+
+}
+
+
+function makeQR(){
+
+const value=
+$("x").value.trim();
+
+if(!value){
+
+$("r").textContent=
+"اكتب نصًا أو رابطًا.";
+
+return;
+
+}
+
+$("r").innerHTML=
+
+`<img
+alt="QR"
+style="
+max-width:250px;
+width:100%;
+background:white;
+padding:8px;
+border-radius:10px;
+"
+src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(value)}"
+>`;
+
+}
+
+
+function checkLink(){
+
+try{
+
+const url=
+new URL($("x").value);
+
+if(
+url.protocol!=="http:" &&
+url.protocol!=="https:"
+){
+
+throw new Error();
+
+}
+
+$("r").textContent=
+"الرابط صحيح من ناحية الصيغة ✅";
+
+}catch{
+
+$("r").textContent=
+"الرابط غير صالح.";
+
+}
+
+}
+
+
+/* =========================
+   التنظيم
+========================= */
+
+function sortList(){
+
+$("r").textContent=
+
+$("x").value
+.split("\n")
+.map(x=>x.trim())
+.filter(Boolean)
+.sort((a,b)=>a.localeCompare(b,"ar"))
+.join("\n");
+
+}
+
+
+/* =========================
+   البطاقة الإلكترونية
+========================= */
+
+function makeCard(){
+
+const title=
+$("ct").value.trim() ||
+"بطاقة إلكترونية";
+
+const name=
+$("cn").value.trim();
+
+const date=
+$("cd").value;
+
+const message=
+$("cm").value.trim() ||
+"اكتب رسالتك الجميلة هنا.";
+
+currentCard=
+`${title}
+${name?"إلى: "+name:""}
+${message}
+${date?"التاريخ: "+date:""}`;
+
+const preview=$("cp");
+
+preview.classList.add("show");
+
+preview.querySelector("small")
+.textContent=
+date||"مِفتاح";
+
+preview.querySelector("h3")
+.textContent=
+title;
+
+preview.querySelector("p")
+.textContent=
+message;
+
+preview.querySelector("b")
+.textContent=
+name
+?"إلى: "+name
+:"";
+
+}
+
+
+/* طباعة البطاقة */
+
+function printCard(){
+
+if(!currentCard){
+
+makeCard();
+
+}
+
+const win=
+window.open(
+"",
+"_blank"
+);
+
+if(!win){
+
+alert(
+"اسمح للنوافذ المنبثقة."
+);
+
+return;
+
+}
+
+const title=
+escapeHTML(
+$("ct").value ||
+"بطاقة إلكترونية"
+);
+
+const name=
+escapeHTML(
+$("cn").value
+);
+
+const message=
+escapeHTML(
+$("cm").value
+);
+
+const date=
+escapeHTML(
+$("cd").value
+);
+
+const html=
+'<!doctype html>'+
+'<html lang="ar" dir="rtl">'+
+'<head>'+
+'<meta charset="utf-8">'+
+'<title>'+title+'</title>'+
+'<style>'+
+'body{font-family:Tahoma;display:grid;place-items:center;min-height:100vh}'+
+'.c{width:80%;padding:60px;text-align:center;border:3px solid #2f8cff;border-radius:25px}'+
+'h1{font-size:40px}'+
+'.m{white-space:pre-wrap;font-size:20px}'+
+'</style>'+
+'</head>'+
+'<body>'+
+'<div class="c">'+
+'<h1>'+title+'</h1>'+
+'<div class="m">'+message+'</div>'+
+'<h3>'+(name?"إلى: "+name:"")+'</h3>'+
+'<p>'+date+'</p>'+
+'</div>'+
+'</body>'+
+'</html>';
+
+win.document.write(html);
+
+win.document.close();
+
+setTimeout(
+function(){
+win.print();
+},
+500
+);
+
+}
+
+
+function escapeHTML(text){
+
+return String(text)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#39;");
+
+}
+
+
+/* =========================
+   القوالب
+========================= */
+
+function showTemplate(title,text){
+
+$("modalTitle").textContent=title;
+
+$("modalBody").innerHTML=`
+
+<textarea
+id="templateText"
+style="min-height:330px"
+></textarea>
+
+<div class="actions">
+
+<button
+class="btn"
+onclick="copyText($('templateText').value)"
+>
+نسخ
+</button>
+
+<button
+class="btn alt"
+onclick="downloadText('قالب.txt',$('templateText').value)"
+>
+تحميل
+</button>
+
+</div>
+
+`;
+
+$("templateText").value=text;
+
+$("modal").classList.add("show");
+
+}
+
+
+function templateCV(){
+
+showTemplate(
+"📄 سيرة ذاتية",
+
+`السيرة الذاتية
+
+الاسم:
+الهاتف:
+البريد الإلكتروني:
+
+التعليم:
+
+الخبرات:
+
+المهارات:
+
+الدورات:
+
+اللغات:`
+);
+
+}
+
+
+function templateOfficial(){
+
+showTemplate(
+"📝 طلب رسمي",
+
+`بسم الله الرحمن الرحيم
+
+إلى: __________
+
+الموضوع: طلب رسمي
+
+السلام عليكم ورحمة الله وبركاته
+
+أتقدم إليكم بهذا الطلب راجيًا النظر فيه.
+
+الاسم:
+رقم الهاتف:
+التاريخ:`
+);
+
+}
+
+
+function templateJob(){
+
+showTemplate(
+"💼 طلب وظيفة",
+
+`السلام عليكم ورحمة الله وبركاته
+
+أتقدم إليكم بطلب وظيفة __________،
+وأرغب في الحصول على فرصة لإثبات قدراتي.
+
+الاسم:
+رقم الهاتف:
+المؤهلات:`
+);
+
+}
+
+
+function templateStudent(){
+
+showTemplate(
+"🎓 طلب طالب",
+
+`إلى إدارة __________
+
+أنا الطالب __________
+من الصف __________.
+
+أتقدم إليكم بطلب __________.
+
+الاسم:
+التاريخ:
+التوقيع:`
+);
+
+}
+
+
+function templateWeek(){
+
+showTemplate(
+"📅 جدول أسبوعي",
+
+`الأحد: __________
+
+الاثنين: __________
+
+الثلاثاء: __________
+
+الأربعاء: __________
+
+الخميس: __________
+
+الجمعة: __________
+
+السبت: __________`
+);
+
+}
+
+
+/* البطاقة موجودة هنا أيضًا */
+
+function templateCard(){
+
+showTemplate(
+"🎨 بطاقة إلكترونية",
+
+`🌟 بطاقة إلكترونية 🌟
+
+العنوان:
+ألف مبروك
+
+إلى:
+____________
+
+الرسالة:
+أتمنى لك الخير والسعادة.
+
+التاريخ:
+____________`
+);
+
+}
+
+
+/* =========================
+   الخدمات
+========================= */
+
+function serviceRequest(serviceName){
+
+showTemplate(
+"💼 طلب خدمة: "+serviceName,
+
+`طلب خدمة من مِفتاح
+
+الخدمة:
+${serviceName}
+
+الاسم:
+________________
+
+رقم الهاتف:
+________________
+
+تفاصيل الطلب:
+________________
+________________
+
+ملاحظات:
+________________`
+);
+
+}
+
+
+/* =========================
+   عرض القوالب
+========================= */
+
+function renderTemplates(){
+
+const data=[
+
+["📄","سيرة ذاتية","templateCV()"],
+
+["📝","طلب رسمي","templateOfficial()"],
+
+["💼","طلب وظيفة","templateJob()"],
+
+["🎓","طلب طالب","templateStudent()"],
+
+["📅","جدول أسبوعي","templateWeek()"],
+
+["🎨","بطاقة إلكترونية","templateCard()"]
+
+];
+
+$("templatesGrid").innerHTML=
+
+data.map(x=>`
+
+<div class="info">
+
+<h3>
+${x[0]} ${x[1]}
+</h3>
+
+<p>
+قالب جاهز قابل للتعديل والنسخ.
+</p>
+
+<button
+class="btn"
+onclick="${x[2]}"
+>
+استخدام القالب
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================
+   عرض الخدمات
+========================= */
+
+function renderServices(){
+
+const services=[
+
+"تصميم سيرة ذاتية",
+
+"إنشاء موقع بسيط",
+
+"بطاقة إلكترونية",
+
+"تجهيز ملف احترافي",
+
+"تصميم إعلان إلكتروني",
+
+"كتابة محتوى",
+
+"صفحة شخصية",
+
+"برمجة وتطوير"
+
+];
+
+$("servicesGrid").innerHTML=
+
+services.map(service=>`
+
+<div class="info">
+
+<h3>
+💼 ${service}
+</h3>
+
+<p>
+طلب الخدمة وتجهيز تفاصيلها.
+</p>
+
+<button
+class="btn"
+onclick="serviceRequest('${service}')"
+>
+طلب الخدمة
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================
+   المهام
+========================= */
+
+function getTasks(){
+
+try{
+
+return JSON.parse(
+localStorage.getItem("mftahTasks")||"[]"
+);
+
+}catch{
+
+return [];
+
+}
+
+}
+
+
+function saveTasks(tasks){
+
+localStorage.setItem(
+"mftahTasks",
+JSON.stringify(tasks)
+);
+
+}
+
+
+function addTask(){
+
+const input=$("taskInput");
+
+const text=input.value.trim();
+
+if(!text)return;
+
+const tasks=getTasks();
+
+tasks.push({
+text:text,
+done:false
+});
+
+saveTasks(tasks);
+
+input.value="";
+
+renderTasks();
+
+}
+
+
+function toggleTask(index){
+
+const tasks=getTasks();
+
+tasks[index].done=
+!tasks[index].done;
+
+saveTasks(tasks);
+
+renderTasks();
+
+}
+
+
+function deleteTask(index){
+
+const tasks=getTasks();
+
+tasks.splice(index,1);
+
+saveTasks(tasks);
+
+renderTasks();
+
+}
+
+
+function renderTasks(){
+
+const tasks=getTasks();
+
+if(!tasks.length){
+
+$("taskList").innerHTML=`
+
+<div class="info">
+لا توجد مهام حاليًا.
+</div>
+
+`;
+
+return;
+
+}
+
+$("taskList").innerHTML=
+
+tasks.map((task,index)=>`
+
+<div
+class="task ${task.done?"done":""}"
+>
+
+<input
+type="checkbox"
+${task.done?"checked":""}
+onchange="toggleTask(${index})"
+>
+
+<span>
+${escapeHTML(task.text)}
+</span>
+
+<button
+class="close"
+onclick="deleteTask(${index})"
+>
+×
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================
+   تشغيل الموقع
+========================= */
+
+renderTools();
+
+renderTemplates();
+
+renderServices();
+
+renderTasks();
+
+</script>
+
+</body>
+</html>
